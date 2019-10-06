@@ -1,0 +1,33 @@
+<!-- Filtrer la recherche par titre -->
+<div fxLayoutAlign="center">
+  <mat-form-field>
+    <mat-label>filter</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let filter of books">
+        <a (click)='openDialog(filter.volumeInfo)'>{{ filter.volumeInfo.title }}</a>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!--  -->
+<!-- Affichage des livres -->
+<mat-grid-list cols="4" rowHeight="400px">
+  <mat-grid-tile *ngFor="let book of books" colspan="1" rowspan="1">
+    <!-- Affichage d'un livre dans un card -->
+    <mat-card class="cardSize">
+      <mat-card-header>
+        <mat-card-subtitle><strong>{{ book.volumeInfo.title }}</strong></mat-card-subtitle>
+        <mat-card-subtitle>{{ book.volumeInfo.authors }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image style="cursor:grabbing" (click)='openDialog(book.volumeInfo)'
+        [src]="book.volumeInfo.imageLinks.thumbnail" alt="book cover">
+      <mat-card-actions fxLayoutAlign="center">
+        <button mat-raised-button (click)='goBack()' color='primary'>go back</button>
+        <button mat-raised-button (click)='openDialog(book.volumeInfo)' color='primary'>details</button>
+      </mat-card-actions>
+    </mat-card>
+    <!-- Fin d'affichage d'un livre -->
+
+  </mat-grid-tile>
+</mat-grid-list>

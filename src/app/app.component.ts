@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'Adz-root',
+  selector: 'adz-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

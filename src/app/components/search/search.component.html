@@ -1,0 +1,17 @@
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<div fxLayoutAlign="center">
+  <mat-card fxLayout="column" fxLayoutAlign="center" fxFlex="70%">
+    <h3>Adictiz Research</h3>
+    <form (formGroup)="searchForm" (ngSubmit)="onSubmit()">
+      <mat-form-field fxFlex="80%">
+        <!-- input pour la saisi -->
+        <input type="text" matInput placeholder="Search Word" name="word" formControlName="word" id="word">
+      </mat-form-field>
+      <div>
+        <button fxLayoutAlign="center" [disabled]="searchForm.invalid" mat-fab mat-icon-button color="primary">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

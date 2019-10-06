@@ -1,0 +1,13 @@
+<div fxLayoutAlign="center" fxLayout="column">
+
+  <div mat-dialog-content>
+    <h5>{{ data.val.title | uppercase }}</h5>
+    <p>{{ data.val.authors }}</p>
+    <p>{{ data.val.publishedDate | uppercase}}</p>
+    <p>{{ data.val.description}}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onNoClick()">close</button>
+  </div>
+
+</div>
