@@ -3,11 +3,15 @@
   <div mat-dialog-content>
     <h5>{{ data.val.title | uppercase }}</h5>
     <p>{{ data.val.authors }}</p>
+    <img [src]="data.val.imageLinks.smallThumbnail" alt="book cover">
     <p>{{ data.val.publishedDate | uppercase}}</p>
     <p>{{ data.val.description}}</p>
   </div>
-  <div mat-dialog-actions>
+  <div mat-dialog-actions fxLayoutGap="70%" fxLayoutGap.xs="0px">
     <button mat-raised-button color="primary" (click)="onNoClick()">close</button>
+    <a [href]="data.val.infoLink" target="_blank" style="text-align: center;">
+      <button mat-raised-button color="primary">more</button>
+    </a>
   </div>
 
 </div>

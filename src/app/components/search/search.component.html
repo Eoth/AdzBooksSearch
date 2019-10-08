@@ -1,8 +1,8 @@
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
 <div fxLayoutAlign="center">
   <mat-card fxLayout="column" fxLayoutAlign="center" fxFlex="70%">
     <h3>Adictiz Research</h3>
-    <form (formGroup)="searchForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
       <mat-form-field fxFlex="80%">
         <!-- input pour la saisi -->
         <input type="text" matInput placeholder="Search Word" name="word" formControlName="word" id="word">
