@@ -17,12 +17,10 @@ export class SearchResultsComponent implements OnInit {
   rowHeight: any; // pour rendre responsive l'affichage
 
   // recuperer la liste des livres depuis le composant parent
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private booksService: BooksService,
-    public dialog: MatDialog
-  ) {}
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private booksService: BooksService,
+              public dialog: MatDialog) {}
 
   ngOnInit() {
     // Récupération de la valeur saisi
