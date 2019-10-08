@@ -49,7 +49,7 @@ export class SearchResultsComponent implements OnInit {
                        // tous les livres filter
   // parcours des livres
     for (const book of this.books) {
-      // verifie si le mot de filtrage est vide
+      // verifie si le mot de filtrage n'est pas vide
       if (filterValue !== ''.trim()) {
         // verifie si le mot saisi se trouve dans le titre du livre parcourue
         if (book.volumeInfo.title.toLowerCase().includes(filterValue.trim().toLowerCase())
