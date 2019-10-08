@@ -13,8 +13,7 @@ export class SearchResultsComponent implements OnInit {
   searchValue: string; // variable pour la valeur saisi envoyé de la page de recherche
   books: any; // variable pour les livres récupérer
   booksPost: any; // variable afficher les livres filtrer
-  cols: number;
-  rowHeight: any; // pour rendre responsive l'affichage
+  cols: number; // pour rendre responsive l'affichage
 
   // recuperer la liste des livres depuis le composant parent
   constructor(private route: ActivatedRoute,
@@ -27,8 +26,7 @@ export class SearchResultsComponent implements OnInit {
     this.searchValue = this.route.snapshot.paramMap.get('word');
 
     // Reqêtage pour récupérer des livres dans l'API
-    this.booksService
-      .getBooks(this.searchValue)
+    this.booksService.getBooks(this.searchValue)
       .then((res: any) => {
         this.books = res.items;
         this.booksPost = this.books;
@@ -37,13 +35,11 @@ export class SearchResultsComponent implements OnInit {
 
     // le nombre de livre selon la taille de l'écran
     this.cols = window.innerWidth <= 500 ? 1 : 3;
-    this.rowHeight = window.innerWidth <= 500 ? '20%' : '35%';
   }
 
   // le nombre de livre selon la taille de l'écran dynamiquement
   onResize(event) {
     this.cols = event.target.innerWidth <= 500 ? 1 : 3;
-    this.rowHeight = event.target.innerWidth <= 500 ? '20%' : '35%';
   }
 
   // filtrer les livres afficher
