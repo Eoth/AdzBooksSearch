@@ -7,6 +7,7 @@ import { componentsRoutingModule } from './components-routing.module';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailViewComponent } from './detail-view/detail-view.component';
+import { MatDialogModule } from '@angular/material';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
     componentsRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    CommonModule
+    MatDialogModule,
+    CommonModule,
+    ReactiveFormsModule
   ]
 })
 export class ComponentsModule { }

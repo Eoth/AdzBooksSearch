@@ -8,16 +8,16 @@
 
 <!--  -->
 <!-- Affichage des livres -->
-<mat-grid-list [cols]="cols" rowHeight="4:3" (window:resize)="onResize($event)">
+<mat-grid-list [cols]="cols" [rowHeight]="rowHeight" (window:resize)="onResize($event)">
   <mat-grid-tile *ngFor="let book of booksPost" colspan="1" rowspan="1">
     <!-- Affichage d'un livre dans un card -->
     <mat-card class="cardSize">
       <mat-card-header>
-        <mat-card-subtitle><strong>{{ book.volumeInfo.title }}</strong></mat-card-subtitle>
-        <mat-card-subtitle>{{ book.volumeInfo.authors }}</mat-card-subtitle>
+        <mat-card-subtitle><strong>{{ book.volumeInfo?.title }}</strong></mat-card-subtitle>
+        <mat-card-subtitle>{{ book.volumeInfo?.authors }}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image style="cursor:grabbing" (click)='openDialog(book.volumeInfo)'
-        [src]="book.volumeInfo.imageLinks.thumbnail" alt="book cover">
+        [src]="book.volumeInfo.imageLinks?.thumbnail" alt="book cover">
     </mat-card>
     <!-- Fin d'affichage d'un livre -->
 
