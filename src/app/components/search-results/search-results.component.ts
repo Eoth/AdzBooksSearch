@@ -15,21 +15,18 @@ export class SearchResultsComponent implements OnInit {
   books: any; // variable pour les livres récupérer
   booksPost: any; // variable afficher les livres filtrer
   cols: number; // pour rendre responsive l'affichage
-  rowHeight: any;
+  rowHeight: any; // pour le response aussi
 
-  // recuperer la liste des livres depuis le composant parent
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private booksService: BooksService,
-    public dialog: MatDialog
-  ) {}
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private booksService: BooksService,
+              public dialog: MatDialog) {}
 
   ngOnInit() {
-    // Récupération de la valeur saisi
+    // Récupération de la valeur de la saisi depuis la page recherche
     this.searchValue = this.route.snapshot.paramMap.get('word');
 
-    // Reqêtage pour récupérer des livres dans l'API
+    // Reqêtage pour récupérer des livres dans l'API depuis le service
     this.booksService
       .getBooks(this.searchValue)
       .then((res: any) => {
@@ -38,7 +35,7 @@ export class SearchResultsComponent implements OnInit {
       })
       .catch(err => console.error(err));
 
-    // le nombre de livre selon la taille de l'écran
+    // le nombre de livre selon la taille de l'écran à l'initialisation
     this.cols = window.innerWidth <= 500 ? 1 : 3;
     this.rowHeight = window.innerWidth <= 900 ? '3:2' : '4:3';
   }
@@ -69,11 +66,11 @@ export class SearchResultsComponent implements OnInit {
               .toLowerCase()
               .includes(filterValue.trim().toLowerCase())
           ) {
-            randBook.push(book); // si le mot saisi se trouve dasn cet livre, il est rajouter
+            randBook.push(book); // si le mot saisi se trouve dans cet livre, il est rajouter
           }
         }
       } else {
-        randBook = this.books; // si le champs, réafficher les resultats initiale
+        randBook = this.books; // si le champs est vide, réafficher les resultats initiale
         break;
       }
     }
